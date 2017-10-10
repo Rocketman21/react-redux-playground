@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 
-export class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -15,6 +15,10 @@ export class Header extends Component {
     });
   }
 
+  onChangeUsername() {
+    this.props.changeUsername();
+  }
+
   render() {
     console.log(logo);
     return (
@@ -23,7 +27,10 @@ export class Header extends Component {
         <h1 className="App-title">Welcome to React</h1>
         Name is {this.props.name}. He is {this.state.age} old. Children: {this.props.children}
         <button onClick={() => this.onMakeOlder()}>Make him older</button>
+        <button onClick={() => this.onChangeUsername()}>Change username</button>
       </header>
     );
   }
 }
+
+export default Header;
